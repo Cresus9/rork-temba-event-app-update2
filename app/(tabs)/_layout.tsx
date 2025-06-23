@@ -4,6 +4,7 @@ import { Home, Ticket, Search, User } from "lucide-react-native";
 import Colors from "@/constants/colors";
 import { useTranslation } from "@/hooks/useTranslation";
 import { StyleSheet, Text, View, Platform } from "react-native";
+import { Logo } from "@/components/Logo";
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -50,7 +51,7 @@ export default function TabLayout() {
           tabBarLabel: "Accueil",
           headerTitle: () => (
             <View style={styles.headerTitleContainer}>
-              <Text style={styles.headerTitle}>Temba</Text>
+              <Logo width={120} height={40} />
             </View>
           ),
         }}

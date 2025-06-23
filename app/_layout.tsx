@@ -8,6 +8,8 @@ import Colors from "@/constants/colors";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { View, StyleSheet } from "react-native";
+import { SplashLogo } from "@/components/Logo";
 
 export const unstable_settings = {
   initialRouteName: "(tabs)",
@@ -37,7 +39,11 @@ export default function RootLayout() {
   }, [loaded, isInitialized]);
 
   if (!loaded || !isInitialized) {
-    return null;
+    return (
+      <View style={styles.splashContainer}>
+        <SplashLogo size={200} />
+      </View>
+    );
   }
 
   return (
@@ -129,3 +135,12 @@ function RootLayoutNav() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  splashContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+});
